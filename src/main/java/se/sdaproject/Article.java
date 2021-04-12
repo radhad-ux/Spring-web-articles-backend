@@ -1,5 +1,9 @@
 package se.sdaproject;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,7 +25,9 @@ public class Article {
     @OneToMany(mappedBy = "comArticle")
     private List<Comment> comments;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "topic")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property ="id")
     private List<Topics> topicsList;
 
 

@@ -29,6 +29,11 @@ public class ArticleController {
         Article article = articleRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
         return ResponseEntity.ok(article);
     }
+    @PostMapping("/articles")
+    public ResponseEntity<Article>  createArticle(@RequestBody Article article) {
+        articleRepository.save(article);
+        return ResponseEntity.status(HttpStatus.CREATED).body(article);
+    }
 
     @PutMapping("/articles/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody Article updatedArticle){
@@ -46,10 +51,5 @@ public class ArticleController {
 
     }
 
-    @PostMapping("/articles")
-    public ResponseEntity<Article>  createArticle(@RequestBody Article article) {
-       articleRepository.save(article);
-       return ResponseEntity.status(HttpStatus.CREATED).body(article);
-    }
 
 }

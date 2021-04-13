@@ -21,8 +21,13 @@ public class Topics {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany
-    private List<Article> topic = new ArrayList<>();
+    @ManyToMany(mappedBy = "topicsList")
+    @JsonIgnore
+    private List<Article> topic;
+
+    public Topics(){
+
+    }
 
     public Long getId() {
         return id;
@@ -40,7 +45,6 @@ public class Topics {
         this.name = name;
     }
 
-    @JsonIgnore
     public List<Article> getTopic() {
         return topic;
     }

@@ -25,9 +25,8 @@ public class Article {
     @OneToMany(mappedBy = "comArticle", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "topic")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property ="id")
+
+    @ManyToMany
     private List<Topics> topicsList;
 
 

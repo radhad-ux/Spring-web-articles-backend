@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 # Dev News
 
 ## Introduction
-This assignment is all about building the backend API for a developer news site where users can create articles, comment them and post their reactions (likes, dislikes). It doesn't require a graphical user interface so it is enough to be able to make requests and get plain json text responses via curl/Postman.
+This assignment is built using Spring Web Framework which is an open source Java platform.
+The programs are all about building the backend API for a developer news site where users can create articles, comment them, create topics and update. It doesn't require a graphical user interface so it is enough to be able to make requests and get plain json text responses via curl/Postman.
 
 ## Learning Objectives
 * Understand the basic structure of a Spring application.
@@ -11,7 +11,7 @@ This assignment is all about building the backend API for a developer news site 
 * Learn how to interact with a relational database using an ORM tool implementing Spring JPA (Hibernate).
 
 ## Setup
-Remember that you will need to configure the following dependencies in your `build.gradle`:
+We need to configure the following dependencies in our `build.gradle`:
 * Spring Web
 * Spring JPA
 * PostgreSQL Driver
@@ -134,11 +134,3 @@ Endpoints:
 #### Exercise 3
 Create a Topic model and implement the above API.
 
-### Reactions
-
-#### Exercise 4 (Bonus)
-To make our application more interactive we might want to add the ability to add article and comment reactions (likes, dislikes, ...).
-Go ahead and implement reactions in your application. You're free to choose how the model should look like so try to draw it out beforehand and think of what kind of relationship will the reactions have to the articles and comments respectively.
-=======
-# Spring-web-articles-backend
->>>>>>> c4c198e62e2f515163ac6152083d63fba45d8818

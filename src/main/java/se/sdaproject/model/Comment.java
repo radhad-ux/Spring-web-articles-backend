@@ -1,9 +1,9 @@
-package se.sdaproject;
+package se.sdaproject.model;
 
 import com.fasterxml.jackson.annotation.*;
+import se.sdaproject.model.Article;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity

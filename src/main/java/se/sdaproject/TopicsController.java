@@ -3,8 +3,11 @@ package se.sdaproject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import se.sdaproject.model.Article;
+import se.sdaproject.model.Topics;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,9 +40,12 @@ public class TopicsController {
     }
 
     @PostMapping("/articles/{articleId}/topics")
-    public ResponseEntity<Topics> createTopics(@PathVariable Long articleId, @RequestBody Topics topics){
+    public ResponseEntity<Topics> createTopics(@PathVariable Long articleId, @RequestBody Topics topicsParam){
         Article article = articleRepository.findById(articleId)
                 .orElseThrow(ResourceNotFoundException::new);
+        Topics topics = topicsRepository.findByName(topicsParam.getName())
+                .orElse(topicsParam);
+        //List<Article> topicsArticles = topics.getTopic();
         topics.getTopic().add(article);
         topicsRepository.save(topics);
         return ResponseEntity.status(HttpStatus.CREATED).body(topics);

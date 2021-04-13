@@ -1,9 +1,10 @@
 package se.sdaproject;
 
-import antlr.debug.NewLineEvent;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import se.sdaproject.model.Article;
+import se.sdaproject.model.Comment;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -45,7 +46,7 @@ public class CommentController {
     }
 
     @PutMapping("/comments/{id}")
-    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @Valid @RequestBody Comment updatedComment){
+    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody Comment updatedComment){
         Comment comment = commentRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
         updatedComment.setId(id);
         commentRepository.save(updatedComment);

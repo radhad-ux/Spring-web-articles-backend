@@ -52,16 +52,16 @@ public class TopicsController {
         return ResponseEntity.ok(article);
     }
 
-    /*@DeleteMapping("/articles/{articleId/topics/{topicId}")
+    @DeleteMapping("/articles/{articleId}/topics/{topicId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTopics(@PathVariable Long articleId, @PathVariable Long topicId){
         Article article = articleRepository.findById(articleId)
                 .orElseThrow(ResourceNotFoundException::new);
         Topics topics = topicsRepository.findById(topicId)
                 .orElseThrow(ResourceNotFoundException::new);
-         article.getTopic().remove(topics);
+         article.getTopicsList().remove(topics);
         articleRepository.save(article);
-    }*/
+    }
 
     @PutMapping("/topics/{id}")
     public ResponseEntity<Topics> updateTopics(@PathVariable Long id, @Valid @RequestBody Topics updatedTopics){

@@ -4,14 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import se.sdaproject.model.Article;
 
-import java.lang.module.ResolutionException;
 import java.util.List;
 
 @RestController
 public class ArticleController {
 
     ArticleRepository articleRepository;
+    TopicsRepository topicsRepository;
 
    @Autowired
    public ArticleController(ArticleRepository articleRepository){

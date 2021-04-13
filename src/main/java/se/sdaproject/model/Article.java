@@ -1,4 +1,4 @@
-package se.sdaproject;
+package se.sdaproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +22,7 @@ public class Article {
     @Column(length = 20)
     private String authorName;
 
-    @OneToMany(mappedBy = "comArticle")
+    @OneToMany(mappedBy = "comArticle", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
     @JsonIgnore

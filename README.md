@@ -134,3 +134,6 @@ Endpoints:
 #### Exercise 3
 Create a Topic model and implement the above API.
 
+Here are some Screen shots of some responses via Postman.
+![createArticle](ScreenShots/createArticle.jpg)
+![retrieveArticle](ScreenShots/retrieveArticles.jpg)

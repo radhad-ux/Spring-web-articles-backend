@@ -1,10 +1,12 @@
 package se.sdaproject;
 
+import antlr.debug.NewLineEvent;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class CommentController {
@@ -23,7 +25,14 @@ public class CommentController {
         return ResponseEntity.ok(comment);
     }
 
-    //@GetMapping("/comments?authorName={authorName}")
+    @GetMapping("/comments?authorName={authorName}")
+    public ResponseEntity <List<Comment>> getComment(@PathVariable String authorName) {
+        List<Comment> comment = commentRepository.findByAuthorName(authorName);
+        if(comment.isEmpty()) {
+            throw new ResourceNotFoundException( );
+        }
+        return ResponseEntity.ok(comment);
+    }
 
 
     @PostMapping("/articles/{articleId}/comments")
